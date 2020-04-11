@@ -1,0 +1,12 @@
+<% layout('../layouts/mainlayout.ejs') -%>
+<br/>
+Store: <%= selectedStore?  selectedStore: ''%>
+<br/>
+Day: <%= selectedDay ? selectedDay : ''%>
+<br/><br/>
+<b>Submitted Vehicles</b>
+<ul>
+<% for(var i=0; i<selectedVehicles.length; i++) { %>
+      <li><%= selectedVehicles[i] %></li>
+<% } %>
+</ul>

@@ -1,0 +1,31 @@
+<% layout('../layouts/mainlayout.ejs') -%>
+<br/>
+
+<form action="/Home/ReceiveForm" method="POST">     
+    <!-- Show dropdown list -->
+    <select name="retailStore">
+           
+        <% for(var i=0; i < stores.length; i++) { 
+            var selected = ( stores[i] == selectedItem ) ? "selected" : "";
+            %>
+            <option value="<%= stores[i]==''? null: stores[i]%>" 
+                    <%=selected %>><%= stores[i] %></option>
+        <% } %>
+    </select>
+    <br/><br/>
+
+    <!-- Show radio button list -->
+    <% for(var i=0; i<days.length; i++) {
+        var selected = (days[i] == selectedDay) ? 'checked' : ''; %>
+        <input type="radio" name="dayOfWeek" value="<%= days[i] %>" <%=selected %>><%= days[i] %><br>
+    <% } %>
+
+    <br/><br/>
+
+    <!-- Use indexes after the variable name to submit as an array. -->
+    <input type="checkbox" name="vehicles[0]" value="Bike"> I have a bike<br>
+    <input type="checkbox" name="vehicles[1]" value="Car" checked> I have a car<br>
+    <input type="checkbox" name="vehicles[2]" value="Airplane" checked> I have a plane<br>
+
+    <input type="submit" value="submit">
+</form>
