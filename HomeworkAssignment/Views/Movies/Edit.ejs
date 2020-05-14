@@ -1,0 +1,36 @@
+<% layout('../layouts/mainlayout.ejs') -%>
+<br/><br/>
+
+
+<form action="/Movies/Update" method="POST">
+
+<h1><%= movie.movieName  %></h1>  <br/>
+<input type='hidden' name="_id" value= '<%= movie._id %>' />
+
+<table style="width:25%">
+
+
+
+    <tr>
+        <td height="50"><b>ratings obj:</b> </td>
+        <td> <input type='text'  name="rating"
+                    value="<%= movie.author.rating ? movie.author.rating: '' %>"  /></td>
+    </tr>
+
+    <tr>
+        <td height="50"><b>reviews obj:</b> </td>
+        <td> <input type='text'  name="review"
+                    value="<%= movie.author.review ? movie.author.review: '' %>"  /></td>
+    </tr>
+
+    <tr>
+        <td></td>
+    <td height="75"><input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block btn-sm"></td></tr>
+    <tr>
+        <td></td>
+    <td><a href="/Movies/Index" class="btn btn-primary btn-lg btn-block btn-sm">Cancel</a></td>
+    </tr>
+</table>
+</form>
+
+<%= errorMessage %>

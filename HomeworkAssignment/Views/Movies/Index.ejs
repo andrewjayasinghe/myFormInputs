@@ -1,0 +1,26 @@
+<% layout('../layouts/mainlayout.ejs') -%>
+
+
+<% for(var i=0; i < movies.length; i++) { %>
+ <br>
+     <h1><%= movies[i].movieName %><br></h1>
+
+ <%sum = 0%>
+  <% for (var j = 0; j < movies[i].author.length; j++ ) { %>
+   <% sum += parseInt( movies[i].author[j].rating );%>  <% } %>
+
+    <%let avg = sum/movies[i].author.length;%>
+  <% if (movies[i].author.length != 0) {%>
+   <p style="margin-left:2.5em"><b>Stars:  <%= avg %> </b>
+   <p style="margin-left:2.5em"><b><a href='/Movies/Detail?_id=<%=  movies[i]._id %>'>Reviews: </a><%= movies[i].author.length%></b> </p>
+   <p style="margin-left:2.5em"><b><a href='/Movies/Edit?_id=<%=  movies[i]._id %>'>Write a Review</a></b> </p>
+ <% } %>
+
+ <% if (movies[i].author.length == 0) {%>
+ <p style="margin-left:2.5em"><b>Stars:  0 </b>
+ <p style="margin-left:2.5em"><b><a href='/Movies/Detail?_id=<%=  movies[i]._id %>'>Reviews: </a><%= movies[i].author.length%></b> </p>
+ <p style="margin-left:2.5em"><b><a href='/Movies/Edit?_id=<%=  movies[i]._id %>'>Write a Review</a></b> </p>
+
+  <% } %>
+ <% } %>
+

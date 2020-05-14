@@ -1,0 +1,14 @@
+<% layout('../layouts/mainlayout.ejs') -%>
+<br/><br/>
+
+
+<% for(var i=0; i < movies.length; i++) { %>
+    <h1><%= movies[i].movieName %></h1>
+    <% for(var j=0; j < movies[i].author.length; j++) { %>
+
+  <% if(movies[i].author[j].user == user.username){%>
+    <%= movies[i].author[j].review %><br>
+    <% } %>
+    <% } %>
+<% } %>
+

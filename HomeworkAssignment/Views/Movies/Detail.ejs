@@ -1,0 +1,26 @@
+<% layout('../layouts/mainlayout.ejs') -%>
+
+<table style="width:50%">
+    <tr>
+        <th>Rating out of 5:</th>
+        <th><b><%= movie.movieName %> </b></th>
+        <th><b><a href='/Movies/Edit?_id=<%=  movie._id %>'>Write a Review</a></b> </th>
+
+    </tr>
+<% for(var i=0; i < movie.author.length; i++) { %><br>
+
+ <tr>
+     <td height="50" ><%= movie.author[i].rating %></td>
+     <td><%= movie.author[i].review %></td>
+     <td><%= movie.author[i].user %><br>
+     (<%= movie.author[i].date %>)</td>
+
+
+         <% }%>
+     </tr></table>
+
+
+
+
+
+

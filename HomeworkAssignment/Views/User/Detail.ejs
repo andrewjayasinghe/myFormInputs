@@ -1,0 +1,17 @@
+<% layout('../layouts/mainlayout.ejs') -%>
+<br/>
+
+            <table style="width:50%">
+                <tr>
+                    <th>User Name:</th>
+                    <th><b> First name: </b></th>
+                    <th><b>Last Name:</b> </th>
+                    <th><b>Email:</b> </th>
+                </tr>
+
+                <tr>
+                    <td height="50" ><%= user.username%></td>
+                    <td> <%= user.email%></td>
+                    <td><%= user.firstName %></td>
+                    <td><%= user.lastName%></td>
+                </tr></table>
